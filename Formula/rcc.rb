@@ -1,8 +1,8 @@
 class Rcc < Formula
   desc "macOS companion toolkit for power users"
   homepage "https://github.com/thousandflowers/Raccoon"
-  url "https://github.com/thousandflowers/Raccoon/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "209affaa11b628c7b04e8d63eafb40347c92ccf6ef5191b01b716d7af46f33e7"
+  url "https://github.com/thousandflowers/Raccoon/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "c05d2232bbb46ea7eb519297661e66623df8da07f59a50a74dc11a202da7865b"
   license "MIT"
   head "https://github.com/thousandflowers/Raccoon.git", branch: "main"
 
@@ -11,12 +11,10 @@ class Rcc < Formula
   def install
     libexec.install "rcc", "lib", "bin", "ui", "completions", "man"
 
-    # Point SCRIPT_DIR to libexec — avoids readlink -f compat issues
     inreplace libexec/"rcc",
       /^SCRIPT_DIR=.*$/,
       "SCRIPT_DIR=\"#{libexec}\""
 
-    # Build Go TUI
     cd libexec/"ui" do
       system "go", "build", "-o", libexec/"bin/rcc-ui", "."
     end
@@ -39,7 +37,7 @@ class Rcc < Formula
         fpath+=#{HOMEBREW_PREFIX}/share/zsh/site-functions
         compinit
 
-      Run `rcc` for the interactive menu, or `rcc <command>` for direct CLI.
+      Run "rcc" for the interactive menu, or "rcc <command>" for direct CLI.
     EOS
   end
 
