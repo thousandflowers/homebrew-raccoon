@@ -15,6 +15,9 @@ class Rcc < Formula
       /^SCRIPT_DIR=.*$/,
       "SCRIPT_DIR=\"#{libexec}\""
 
+    # bin/rcc-ui is a stale binary committed in the repo; remove it so
+    # `go build` can write a fresh universal binary without colliding.
+    rm_f libexec/"bin/rcc-ui"
     cd libexec/"ui" do
       system "go", "build", "-o", libexec/"bin/rcc-ui", "."
     end
