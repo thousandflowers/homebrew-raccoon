@@ -1,8 +1,8 @@
 class Rcc < Formula
   desc "macOS companion toolkit for power users"
   homepage "https://github.com/thousandflowers/Raccoon"
-  url "https://github.com/thousandflowers/Raccoon/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "fe6836b9299308354b25b2735631641abffc05d8985f2c5578d208a71a9dcb32"
+  url "https://github.com/thousandflowers/Raccoon/archive/refs/tags/v0.10.2.tar.gz"
+  sha256 "73d90e25206523d8e75da709ef86f3e1eb58b63a9920224183c4a779683db9ed"
   license "MIT"
   head "https://github.com/thousandflowers/Raccoon.git", branch: "main"
 
