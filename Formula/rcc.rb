@@ -11,6 +11,10 @@ class Rcc < Formula
   def install
     libexec.install "rcc", "lib", "bin", "ui", "completions", "man"
 
+    # Stamp the installed version so `rcc --version` always reports the tag
+    # this formula was built from — no static version baked into the source.
+    (libexec/"VERSION").write version.to_s
+
     inreplace libexec/"rcc",
       /^SCRIPT_DIR=.*$/,
       "SCRIPT_DIR=\"#{libexec}\""
